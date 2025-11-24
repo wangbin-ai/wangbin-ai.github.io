@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://wangbin-ai.github.io/al-folio/sitemap.xml
+Sitemap: https://wangbin-ai.github.io/sitemap.xml
