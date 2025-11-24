@@ -18,7 +18,7 @@ function determineGiscusTheme() {
 
   let giscusAttributes = {
     src: "https://giscus.app/client.js",
-    "data-repo": "binwangai/binwang-ai.github.io",
+    "data-repo": "wangbin-ai/wangbin-ai.github.io",
     "data-repo-id": "",
     "data-category": "Comments",
     "data-category-id": "",
