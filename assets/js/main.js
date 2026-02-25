@@ -153,6 +153,7 @@
     function renderAll(data) {
         renderNav(data);
         renderHero(data);
+        renderNews(data);
         renderAbout(data);
         renderExperience(data);
         renderResearch(data);
@@ -208,6 +209,17 @@
         if (heroDesc) {
             heroDesc.textContent = data.personal.heroDescription;
         }
+    }
+
+    function renderNews(data) {
+        const newsList = document.getElementById('heroNewsList');
+        if (!newsList || !data.news) return;
+
+        newsList.innerHTML = data.news.map(item => {
+            const datePart = item.date ? `<span class="news-date">${item.date}</span>` : '';
+            const className = item.important ? 'news-item important' : 'news-item';
+            return `<li class="${className}">${datePart}<span class="news-text">${item.text}</span></li>`;
+        }).join('');
     }
 
     function renderAbout(data) {
