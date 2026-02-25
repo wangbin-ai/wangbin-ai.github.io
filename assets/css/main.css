@@ -398,23 +398,6 @@ img {
     display: none;
 }
 
-.nav-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.625rem 1.25rem;
-    background: var(--accent-gradient);
-    border-radius: 8px;
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: white;
-    transition: var(--transition-normal);
-}
-
-.nav-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-glow);
-}
 
 .nav-toggle {
     display: none;
@@ -1609,10 +1592,6 @@ img {
         background: var(--bg-card-hover);
         padding-left: 2rem;
         color: var(--accent-primary);
-    }
-
-    .nav-actions .nav-btn {
-        display: none;
     }
 
     .nav-actions {
