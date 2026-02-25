@@ -684,14 +684,6 @@ img {
     background: var(--border-color);
 }
 
-.hero-actions {
-    display: flex;
-    justify-content: flex-start;
-    gap: 1rem;
-    margin-bottom: 2rem;
-    animation: fadeInUp 0.6s ease 0.5s both;
-}
-
 .btn {
     display: inline-flex;
     align-items: center;
@@ -1668,19 +1660,6 @@ img {
 
     .stat-divider {
         display: none;
-    }
-
-    .hero-actions {
-        justify-content: center;
-        flex-direction: column;
-        width: 100%;
-        max-width: 300px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .btn {
-        justify-content: center;
     }
 
     .hero-scroll {
