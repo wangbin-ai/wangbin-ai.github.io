@@ -180,11 +180,6 @@
         if (navLogo) {
             navLogo.innerHTML = `<img src="${data.personal.photo}" alt="${data.personal.name}" class="nav-avatar">`;
         }
-
-        const navScholarLink = document.getElementById('navScholarLink');
-        if (navScholarLink) {
-            navScholarLink.href = data.personal.social.scholar.url;
-        }
     }
 
     function renderHero(data) {
