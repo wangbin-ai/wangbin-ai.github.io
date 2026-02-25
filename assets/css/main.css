@@ -42,7 +42,7 @@
 
     /* Spacing */
     --container-max: 1200px;
-    --section-padding: 120px;
+    --section-padding: 60px;
     --nav-height: 72px;
 
     /* Navigation background for dark theme */
@@ -663,7 +663,7 @@ img {
     font-size: 1.125rem;
     color: var(--text-tertiary);
     max-width: 600px;
-    margin: 0 0 3rem 0;
+    margin: 0 0 2rem 0;
     animation: fadeInUp 0.6s ease 0.3s both;
 }
 
@@ -672,7 +672,7 @@ img {
     justify-content: flex-start;
     align-items: center;
     gap: 2rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     animation: fadeInUp 0.6s ease 0.4s both;
 }
 
@@ -705,7 +705,7 @@ img {
     display: flex;
     justify-content: flex-start;
     gap: 1rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     animation: fadeInUp 0.6s ease 0.5s both;
 }
 
@@ -851,30 +851,42 @@ img {
     max-width: var(--container-max);
     margin: 0 auto;
     padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    column-gap: 3rem;
+    align-items: start;
+}
+
+.section-container > *:not(.section-header) {
+    grid-column: 2;
 }
 
 .section-header {
-    text-align: center;
-    margin-bottom: 4rem;
+    grid-column: 1;
+    text-align: left;
+    margin-bottom: 0;
+    position: sticky;
+    top: calc(var(--nav-height) + 2rem);
 }
 
 .section-tag {
-    display: inline-block;
+    display: block;
     font-family: var(--font-mono);
     font-size: 0.875rem;
     color: var(--accent-primary);
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .section-title {
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--text-primary);
+    line-height: 1.3;
 }
 
 .section-footer {
     text-align: center;
-    margin-top: 3rem;
+    margin-top: 1.5rem;
 }
 
 /* ============================================
@@ -883,8 +895,8 @@ img {
 .about-content {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 3rem;
+    align-items: flex-start;
+    gap: 2rem;
 }
 
 .about-image {
@@ -1007,8 +1019,8 @@ img {
    ============================================ */
 .experience-timeline {
     position: relative;
-    max-width: 700px;
-    margin: 0 auto;
+    max-width: none;
+    margin: 0;
     padding-left: 2rem;
 }
 
@@ -1024,7 +1036,7 @@ img {
 
 .experience-item {
     position: relative;
-    padding-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
 }
 
 .experience-item:last-child {
@@ -1090,10 +1102,10 @@ img {
 
 .research-card {
     position: relative;
-    padding: 2rem;
+    padding: 1.5rem;
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    border-radius: 16px;
+    border-radius: 12px;
     overflow: hidden;
     transition: var(--transition-normal);
 }
@@ -1123,7 +1135,7 @@ img {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .research-icon {
@@ -1148,7 +1160,7 @@ img {
     font-size: 0.9375rem;
     color: var(--text-secondary);
     line-height: 1.7;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .research-tags {
@@ -1194,18 +1206,18 @@ img {
 .publications-list {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    max-width: 900px;
-    margin: 0 auto;
+    gap: 1rem;
+    max-width: none;
+    margin: 0;
 }
 
 .pub-card {
     display: flex;
-    gap: 2rem;
-    padding: 2rem;
+    gap: 1.5rem;
+    padding: 1.5rem;
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    border-radius: 16px;
+    border-radius: 12px;
     transition: all 0.4s ease;
 }
 
@@ -1361,15 +1373,15 @@ img {
    Contact Section
    ============================================ */
 .contact-content {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
+    max-width: none;
+    margin: 0;
+    text-align: left;
 }
 
 .contact-intro {
     font-size: 1.25rem;
     color: var(--text-secondary);
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
 }
 
 .contact-cards {
@@ -1382,11 +1394,11 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
-    padding: 2rem 1.5rem;
+    gap: 0.75rem;
+    padding: 1.5rem;
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    border-radius: 16px;
+    border-radius: 12px;
     transition: var(--transition-normal);
     position: relative;
 }
@@ -1447,7 +1459,7 @@ img {
    Footer
    ============================================ */
 .footer {
-    padding: 4rem 0 2rem;
+    padding: 2rem 0 1.5rem;
     border-top: 1px solid var(--border-color);
 }
 
@@ -1461,7 +1473,7 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
 }
 
 .footer-brand {
@@ -1510,7 +1522,12 @@ img {
    ============================================ */
 @media (max-width: 1024px) {
     :root {
-        --section-padding: 80px;
+        --section-padding: 48px;
+    }
+
+    .section-container {
+        grid-template-columns: 160px 1fr;
+        column-gap: 2rem;
     }
 
     .about-cards {
@@ -1525,8 +1542,22 @@ img {
 
 @media (max-width: 768px) {
     :root {
-        --section-padding: 60px;
+        --section-padding: 36px;
         --nav-height: 64px;
+    }
+
+    .section-container {
+        display: block;
+    }
+
+    .section-header {
+        position: static;
+        text-align: left;
+        margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
     }
 
     /* Mobile navigation container */
@@ -1768,7 +1799,7 @@ img {
 
 @media (max-width: 480px) {
     .section-header {
-        margin-bottom: 2.5rem;
+        margin-bottom: 1rem;
     }
 
     .about-text {
@@ -1780,15 +1811,15 @@ img {
     }
 
     .research-card {
-        padding: 1.5rem;
+        padding: 1.25rem;
     }
 
     .pub-card {
-        padding: 1.5rem;
+        padding: 1.25rem;
     }
 
     .contact-card {
-        padding: 1.5rem;
+        padding: 1.25rem;
     }
 }
 
