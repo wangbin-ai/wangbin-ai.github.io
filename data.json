@@ -239,5 +239,37 @@
       ]
     }
   ],
+  "news": [
+    {
+      "date": "Feb 2025",
+      "text": "Our paper <strong>LogicTree</strong> is accepted as a <strong>Spotlight</strong> at NeurIPS 2025!",
+      "important": true
+    },
+    {
+      "date": "Jan 2025",
+      "text": "Our paper <strong>ToolACE: Winning the Points of LLM Function Calling</strong> is accepted at ICLR 2025!",
+      "important": true
+    },
+    {
+      "date": "2025",
+      "text": "<strong>Pangu Ultra</strong> released — pushing the limits of dense LLMs on Ascend NPUs.",
+      "important": false
+    },
+    {
+      "date": "2025",
+      "text": "<strong>Pangu Embedded</strong> released — an efficient dual-system LLM reasoner with metacognition.",
+      "important": false
+    },
+    {
+      "date": "Oct 2024",
+      "text": "Our paper <strong>Tree-Planner</strong> is accepted at ICLR 2024.",
+      "important": false
+    },
+    {
+      "date": "2024",
+      "text": "Our paper on <strong>Subgoal Image Generation for Robot Manipulation</strong> is accepted at CVPR 2024.",
+      "important": false
+    }
+  ],
   "lastUpdate": "02.2026"
 }
