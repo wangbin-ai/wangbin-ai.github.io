@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wang Bin - Curriculum Vitae | Research Scientist at Huawei 2012 Labs">
+    <meta name="theme-color" content="#0a0a0f">
+    <title>CV | Wang Bin</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon-64.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon-180.png">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* CV Page Specific Styles */
+        .cv-page {
+            padding: calc(var(--nav-height) + 3rem) 2rem 4rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .cv-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.6s ease both;
+        }
+
+        .cv-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--border-color);
+            box-shadow: var(--shadow-lg), 0 0 40px rgba(99, 102, 241, 0.15);
+            margin-bottom: 1.5rem;
+        }
+
+        .cv-name {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--hero-title-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .cv-title {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+        }
+
+        .cv-contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.25rem;
+            margin-top: 1rem;
+        }
+
+        .cv-contact-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            transition: var(--transition-fast);
+        }
+
+        .cv-contact-item:hover {
+            color: var(--accent-primary);
+        }
+
+        .cv-contact-item svg {
+            color: var(--accent-primary);
+            flex-shrink: 0;
+        }
+
+        /* CV Sections */
+        .cv-section {
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 0.6s ease both;
+        }
+
+        .cv-section:nth-child(2) { animation-delay: 0.1s; }
+        .cv-section:nth-child(3) { animation-delay: 0.15s; }
+        .cv-section:nth-child(4) { animation-delay: 0.2s; }
+        .cv-section:nth-child(5) { animation-delay: 0.25s; }
+        .cv-section:nth-child(6) { animation-delay: 0.3s; }
+
+        .cv-section-title {
+            font-size: 1.375rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid transparent;
+            border-image: var(--accent-gradient) 1;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .cv-section-title svg {
+            color: var(--accent-primary);
+            flex-shrink: 0;
+        }
+
+        /* Experience & Education Items */
+        .cv-item {
+            padding: 1.25rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            transition: var(--transition-normal);
+        }
+
+        .cv-item:hover {
+            border-color: var(--border-hover);
+            transform: translateX(4px);
+        }
+
+        .cv-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .cv-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .cv-item-role {
+            font-size: 1.0625rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .cv-item-date {
+            font-size: 0.8125rem;
+            font-family: var(--font-mono);
+            color: var(--accent-primary);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .cv-item-org {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+        }
+
+        .cv-item-desc {
+            font-size: 0.875rem;
+            color: var(--text-tertiary);
+            margin-top: 0.5rem;
+            line-height: 1.7;
+        }
+
+        .cv-sub-items {
+            margin-top: 0.75rem;
+            padding-left: 1rem;
+            border-left: 2px solid var(--border-color);
+        }
+
+        .cv-sub-item {
+            padding: 0.625rem 0 0.625rem 0.75rem;
+        }
+
+        .cv-sub-item + .cv-sub-item {
+            border-top: 1px solid var(--border-color);
+        }
+
+        .cv-sub-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .cv-sub-item-role {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .cv-sub-item-date {
+            font-size: 0.75rem;
+            font-family: var(--font-mono);
+            color: var(--accent-primary);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .cv-sub-item-desc {
+            font-size: 0.8125rem;
+            color: var(--text-tertiary);
+            margin-top: 0.375rem;
+            line-height: 1.7;
+        }
+
+        /* Research Interests */
+        .cv-interests-text {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Publications List */
+        .cv-pub-item {
+            padding: 1rem 1.25rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            margin-bottom: 0.75rem;
+            transition: var(--transition-normal);
+        }
+
+        .cv-pub-item:hover {
+            border-color: var(--border-hover);
+        }
+
+        .cv-pub-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .cv-pub-venue {
+            display: inline-block;
+            padding: 0.125rem 0.5rem;
+            background: var(--accent-gradient);
+            border-radius: 4px;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .cv-pub-title {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.5;
+            margin-bottom: 0.375rem;
+        }
+
+        .cv-pub-authors {
+            font-size: 0.8125rem;
+            color: var(--text-tertiary);
+            line-height: 1.6;
+        }
+
+        .cv-pub-authors strong {
+            color: var(--accent-primary);
+        }
+
+        /* Print / Download button */
+        .cv-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.6s ease 0.05s both;
+        }
+
+        .btn-cv {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1.25rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition-normal);
+        }
+
+        .btn-cv-print {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+        }
+
+        .btn-cv-print:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+            transform: translateY(-2px);
+        }
+
+        .btn-cv-back {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .btn-cv-back:hover {
+            border-color: var(--border-hover);
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cv-page {
+                padding: calc(var(--nav-height) + 2rem) 1.5rem 3rem;
+            }
+
+            .cv-name {
+                font-size: 1.875rem;
+            }
+
+            .cv-item-header {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+
+            .cv-contact-row {
+                gap: 0.75rem;
+            }
+        }
+
+        /* CV Sidebar Navigation */
+        .cv-sidebar-nav {
+            position: fixed;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+
+        .cv-sidebar-nav.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .cv-sidebar-link {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 0;
+            padding: 0.25rem 0;
+            font-size: 0;
+            font-weight: 500;
+            color: var(--text-tertiary);
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Horizontal indicator line */
+        .cv-sidebar-link::after {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 2px;
+            border-radius: 1px;
+            background: var(--text-tertiary);
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+            opacity: 0.5;
+        }
+
+        /* Hover: show title text */
+        .cv-sidebar-link:hover {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            gap: 0.5rem;
+            padding: 0.35rem 0.75rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .cv-sidebar-link:hover::after {
+            width: 12px;
+            background: var(--text-secondary);
+            opacity: 1;
+        }
+
+        /* Active section indicator */
+        .cv-sidebar-link.active::after {
+            width: 28px;
+            height: 3px;
+            background: var(--accent-primary);
+            opacity: 1;
+        }
+
+        .cv-sidebar-link.active:hover {
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+
+        @media (max-width: 1280px) {
+            .cv-sidebar-nav {
+                right: 0.75rem;
+            }
+
+            .cv-sidebar-link::after {
+                width: 16px;
+            }
+
+            .cv-sidebar-link.active::after {
+                width: 22px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .cv-sidebar-nav {
+                display: none;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .nav, .bg-gradient, .bg-grid, .bg-glow, .cv-actions, .footer, .cv-sidebar-nav {
+                display: none !important;
+            }
+
+            .cv-page {
+                padding: 0;
+                max-width: 100%;
+            }
+
+            body {
+                background: white;
+                color: #1a1a2e;
+            }
+
+            .cv-name {
+                background: none;
+                -webkit-text-fill-color: #1a1a2e;
+                color: #1a1a2e;
+            }
+
+            .cv-item, .cv-pub-item {
+                background: transparent;
+                border-color: #e5e7eb;
+            }
+
+            .cv-section-title {
+                border-image: none;
+                border-bottom-color: #6366f1;
+            }
+
+            .cv-interests-text {
+                color: #1a1a2e;
+            }
+
+            .cv-interests-text strong {
+                color: #1a1a2e;
+            }
+
+            .cv-sub-items {
+                border-left-color: #e5e7eb;
+            }
+
+            .cv-sub-item + .cv-sub-item {
+                border-top-color: #e5e7eb;
+            }
+
+            .cv-sub-item-role {
+                color: #1a1a2e;
+            }
+
+            .cv-sub-item-date {
+                color: #6366f1;
+            }
+
+            .cv-sub-item-desc {
+                color: #4a4a6a;
+            }
+
+            .cv-pub-venue {
+                background: #6366f1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-gradient"></div>
+    <div class="bg-grid"></div>
+    <div class="bg-glow"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/img/1592386529081.jpg" alt="Wang Bin" class="nav-avatar">
+            </a>
+            <div class="nav-overlay" id="navOverlay"></div>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="index.html#experience" class="nav-link">Experience</a>
+                <a href="index.html#research" class="nav-link">Research</a>
+                <a href="index.html#publications" class="nav-link">Publications</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/>
+                        <line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/>
+                        <line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                </button>
+                <a href="https://scholar.google.com/citations?user=KWZG_YsAAAAJ&hl=en" target="_blank" class="nav-btn">
+                    <span>Google Scholar</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                    </svg>
+                </a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- CV Sidebar Navigation -->
+    <nav class="cv-sidebar-nav" id="cvSidebarNav">
+        <a href="#cv-research-interests" class="cv-sidebar-link" data-section="cv-research-interests">Research Interests</a>
+        <a href="#cv-experience" class="cv-sidebar-link" data-section="cv-experience">Professional Experience</a>
+        <a href="#cv-education" class="cv-sidebar-link" data-section="cv-education">Education</a>
+        <a href="#cv-publications" class="cv-sidebar-link" data-section="cv-publications">Selected Publications</a>
+        <a href="#cv-awards" class="cv-sidebar-link" data-section="cv-awards">Awards &amp; Honors</a>
+        <a href="#cv-services" class="cv-sidebar-link" data-section="cv-services">Professional Services</a>
+    </nav>
+
+    <!-- CV Content -->
+    <main class="cv-page">
+        <!-- Header -->
+        <div class="cv-header">
+            <img src="assets/img/1592386529081.jpg" alt="Wang Bin" class="cv-avatar">
+            <h1 class="cv-name">Wang Bin</h1>
+            <p class="cv-title">Research Scientist at Huawei 2012 Labs</p>
+            <div class="cv-contact-row">
+                <span class="cv-contact-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="10" r="3"/>
+                        <path d="M12 2a8 8 0 0 0-8 8c0 5.4 8 12 8 12s8-6.6 8-12a8 8 0 0 0-8-8z"/>
+                    </svg>
+                    Beijing, China
+                </span>
+                <a href="https://www.linkedin.com/in/bin-wang-85a164147/" target="_blank" class="cv-contact-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    LinkedIn
+                </a>
+                <a href="https://scholar.google.com/citations?user=KWZG_YsAAAAJ&hl=en" target="_blank" class="cv-contact-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M5.242 13.769L0 9.5L12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/>
+                    </svg>
+                    Google Scholar
+                </a>
+                <a href="https://github.com/wangbin-ai" target="_blank" class="cv-contact-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                    </svg>
+                    GitHub
+                </a>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="cv-actions">
+            <a href="index.html" class="btn-cv btn-cv-back">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Home
+            </a>
+            <button onclick="window.print()" class="btn-cv btn-cv-print">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+                    <rect x="6" y="14" width="12" height="8"/>
+                </svg>
+                Print / Save PDF
+            </button>
+        </div>
+
+        <!-- Research Interests -->
+        <div class="cv-section" id="cv-research-interests">
+            <h2 class="cv-section-title">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="M21 21l-4.35-4.35"/>
+                </svg>
+                Research Interests
+            </h2>
+            <p class="cv-interests-text">
+                My research focuses on building intelligent systems that can understand, reason, and interact with the world. Specific interests include <strong>Foundation Models</strong> (large language models, multimodal models, data synthesis, post-training, and reasoning), <strong>AI Agents</strong> (autonomous agents powered by LLMs that can plan, use tools, and execute complex tasks), <strong>Reinforcement Learning</strong> (policy optimization, reward modeling, RLVR & RLHF, and offline RL), and <strong>Embodied AI</strong> (robotic manipulation, vision-language grounding, and sensorimotor learning).
+            </p>
+        </div>
+
+        <!-- Experience -->
+        <div class="cv-section" id="cv-experience">
+            <h2 class="cv-section-title">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                </svg>
+                Professional Experience
+            </h2>
+            <div class="cv-item">
+                <div class="cv-item-header">
+                    <div>
+                        <div class="cv-item-role">Research Scientist</div>
+                        <div class="cv-item-org">Huawei 2012 Labs, Beijing, China</div>
+                    </div>
+                    <div class="cv-item-date">2018 &mdash; Present</div>
+                </div>
+                <div class="cv-sub-items">
+                    <div class="cv-sub-item">
+                        <div class="cv-sub-item-header">
+                            <div class="cv-sub-item-role">Foundation Models</div>
+                            <div class="cv-sub-item-date">2023 &mdash; Present</div>
+                        </div>
+                        <div class="cv-sub-item-desc">Leading foundation models post-training for LLMs/VLMs especially in ARC abilities. Leading research on large language models, including improving complex reasoning capabilities via synthetic data and dual-system approaches (LogicTree, Pangu Embedded, Pangu Ultra), and advancing LLM function calling and tool-use abilities (ToolACE).</div>
+                    </div>
+                    <div class="cv-sub-item">
+                        <div class="cv-sub-item-header">
+                            <div class="cv-sub-item-role">Embodied AI</div>
+                            <div class="cv-sub-item-date">2022 &mdash; 2023</div>
+                        </div>
+                        <div class="cv-sub-item-desc">Leading research on embodied intelligence systems, including vision-language pre-training for embodied agents (EmbodiedGPT), LLM-based task planning for robotic execution (Tree-Planner), diffusion model-driven robot manipulation (Generate Subgoal Images), and offline meta-reinforcement learning for planning (MetaDiffuser).</div>
+                    </div>
+                    <div class="cv-sub-item">
+                        <div class="cv-sub-item-header">
+                            <div class="cv-sub-item-role">Autonomous Driving</div>
+                            <div class="cv-sub-item-date">2018 &mdash; 2022</div>
+                        </div>
+                        <div class="cv-sub-item-desc">Developing reinforcement learning models for autonomous driving planning, dealing with challenge scenarios like lane-change, intersections, etc.. Research on reinforcement learning for decision-making, including imitation learning (Tripple-GAIL), meta-reinforcement learning with decomposed mutual information (DOMINO), sample-efficient behavior selection that broke Atari human world records (Learnable Behavior Control).</div>
+                    </div>
+                </div>
+            </div>
+            <div class="cv-item">
+                <div class="cv-item-header">
+                    <div>
+                        <div class="cv-item-role">Assistant Professor</div>
+                        <div class="cv-item-org">University of Jinan, Shandong Province, China</div>
+                        <div class="cv-item-org">Research on reinforcement learning for robotic navigation.</div>
+                    </div>
+                    <div class="cv-item-date">2015 &mdash; 2018</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education -->
+        <div class="cv-section" id="cv-education">
+            <h2 class="cv-section-title">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                    <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/>
+                </svg>
+                Education
+            </h2>
+            <div class="cv-item">
+                <div class="cv-item-header">
+                    <div>
+                        <div class="cv-item-role">Ph.D. in Control Science and Engineering</div>
+                        <div class="cv-item-org">Institute of Automation, Chinese Academy of Sciences</div>
+                        <div class="cv-item-org">Research on reinforcement learning and autonomous driving.</div>
+                    </div>
+                    <div class="cv-item-date">2010 &mdash; 2015</div>
+                </div>
+            </div>
+            <div class="cv-item">
+                <div class="cv-item-header">
+                    <div>
+                        <div class="cv-item-role">B.S. in Automation</div>
+                        <div class="cv-item-org">China University of Petroleum</div>
+                    </div>
+                    <div class="cv-item-date">2006 &mdash; 2010</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Selected Publications -->
+        <div class="cv-section" id="cv-publications">
+            <h2 class="cv-section-title">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/>
+                </svg>
+                Selected Publications
+            </h2>
+
+            <!-- 2025 -->
+            <div class="cv-pub-item">
+                <span class="cv-pub-venue">NeurIPS 2025 Spotlight</span>
+                <div class="cv-pub-title">LogicTree: Improving Complex Reasoning of LLMs via Instantiated Multi-step Synthetic Logical Data</div>
+                <div class="cv-pub-authors">Zehao Wang, Lin Yang, Jie Wang, Kehan Wang, Hanzhu Chen, <strong>Bin Wang</strong>, Jianye Hao, Defu Lian, Bin Li, Enhong Chen</div>
+            </div>
+
+            <div class="cv-pub-item">
+                <span class="cv-pub-venue">ICLR 2025</span>
+                <div class="cv-pub-title">ToolACE: Winning the Points of LLM Function Calling</div>
+                <div class="cv-pub-authors">Weiwen Liu, Xu Huang, Xingshan Zeng, ..., <strong>Bin Wang</strong>, ..., Qun Liu, Enhong Chen</div>
+            </div>
+
+            <div class="cv-pub-item">
+                <span class="cv-pub-venue">arXiv 2025</span>
+                <div class="cv-pub-title">Pangu Ultra: Pushing the Limits of Dense Large Language Models on Ascend NPUs</div>
+                <div class="cv-pub-authors">Yichun Yin, Wenyong Huang, Kaikai Song, ..., <strong>Bin Wang</strong>, ..., Zhicheng Liu</div>
+            </div>
+
+            <div class="cv-pub-item">
+                <span class="cv-pub-venue">arXiv 2025</span>
+                <div class="cv-pub-title">Pangu Embedded: An Efficient Dual-system LLM Reasoner with Metacognition</div>
+                <div class="cv-pub-authors">Hanting Chen, Yasheng Wang, Kai Han, ..., <strong>Bin Wang</strong>, ..., Yunhe Wang, et al.</div>
+            </div>
+
+            <!-- 2024 -->
+            <div class="cv-pub-item">
+                <span class="cv-pub-venue">ICLR 2024</span>
+                <div class="cv-pub-title">Tree-Planner: Efficient Close-loop Task Planning with Large Language Models</div>
+                <div class="cv-pub-authors">Mengkang Hu, Yao Mu, Xinmiao Yu, Mingyu Ding, Shiguang Wu, Wenqi Shao, Qiguang Chen, <strong>Bin Wang</strong>, Yu Qiao, Ping Luo</div>
+            </div>
+
+            <div class="cv-pub-item">
+                <span class="cv-pub-venue">CVPR 2024</span>
+                <div class="cv-pub-title">Generate Subgoal Images before Act: Unlocking the Chain-of-Thought Reasoning in Diffusion Model for Robot Manipulation with Multimodal Prompts</div>
+                <div class="cv-pub-authors">Fei Ni, Jianye Hao, Shiguang Wu, Longxin Kou, Jiashun Liu, Yan Zheng, <strong>Bin Wang</strong>, Yuzheng Zhuang</div>
+            </div>
+
+            <!-- 2023 -->
+            <div class="cv-pub-item">
+                <span class="cv-pub-venue">NeurIPS 2023 Spotlight</span>
+                <div class="cv-pub-title">EmbodiedGPT: Vision-Language Pre-Training via Embodied Chain of Thought</div>
+                <div class="cv-pub-authors">Yao Mu, Qinglong Zhang, Mengkang Hu, Wenhai Wang, Mingyu Ding, Jun Jin, <strong>Bin Wang</strong>, Jifeng Dai, Yu Qiao, Ping Luo</div>
+            </div>
+
+            <div class="cv-pub-item">
+                <span class="cv-pub-venue">ICML 2023</span>
+                <div class="cv-pub-title">ChiPFormer: Transferable Chip Placement via Offline Decision Transformer</div>
+                <div class="cv-pub-authors">Yao Lai, Jinxin Liu, Zhentao Tang, <strong>Bin Wang</strong>, Jianye Hao, Ping Luo</div>
+            </div>
+
+            <div class="cv-pub-item">
+                <span class="cv-pub-venue">ICML 2023</span>
+                <div class="cv-pub-title">MetaDiffuser: Diffusion Model as Conditional Planner for Offline Meta-RL</div>
+                <div class="cv-pub-authors">Fei Ni, Jianye Hao, Yao Mu, Yifu Yuan, Yan Zheng, <strong>Bin Wang</strong>, Zhixuan Liang</div>
+            </div>
+
+            <div class="cv-pub-item">
+                <span class="cv-pub-venue">ICLR 2023 Oral</span>
+                <div class="cv-pub-title">Learnable Behavior Control: Breaking Atari Human World Records via Sample-Efficient Behavior Selection</div>
+                <div class="cv-pub-authors">Jiajun Fan, Yuzheng Zhuang, Yuecheng Liu, Jianye Hao, <strong>Bin Wang</strong>, Jiangcheng Zhu, Hao Wang, Shu-Tao Xia</div>
+            </div>
+
+            <!-- 2022 -->
+            <div class="cv-pub-item">
+                <span class="cv-pub-venue">NeurIPS 2022 Spotlight</span>
+                <div class="cv-pub-title">DOMINO: Decomposed Mutual Information Optimization for Generalized Context in Meta-Reinforcement Learning</div>
+                <div class="cv-pub-authors">Yao Mu, Fei Ni, Weichen Yu, <strong>Bin Wang</strong>, Jianye Hao, Ping Luo</div>
+            </div>
+
+            <div style="text-align: center; margin-top: 1rem;">
+                <a href="https://scholar.google.com/citations?user=KWZG_YsAAAAJ&hl=en" target="_blank" class="btn-cv btn-cv-print" style="display: inline-flex;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                        <path d="M15 3h6v6"/>
+                        <path d="M10 14L21 3"/>
+                    </svg>
+                    View Full Publication List
+                </a>
+            </div>
+        </div>
+
+        <!-- Awards & Honors (placeholder) -->
+        <div class="cv-section" id="cv-awards">
+            <h2 class="cv-section-title">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="8" r="7"/>
+                    <path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12"/>
+                </svg>
+                Awards &amp; Honors
+            </h2>
+            <div class="cv-item">
+                <div class="cv-item-header">
+                    <div class="cv-item-role">Innovation Pioneer &amp; 2012 Laboratories President Award</div>
+                    <div class="cv-item-date">2025</div>
+                </div>
+            </div>
+            <div class="cv-item">
+                <div class="cv-item-header">
+                    <div class="cv-item-role">2012 Laboratories President Award</div>
+                    <div class="cv-item-date">2024</div>
+                </div>
+            </div>
+            <div class="cv-item">
+                <div class="cv-item-header">
+                    <div class="cv-item-role">2012 Laboratories President Award</div>
+                    <div class="cv-item-date">2023</div>
+                </div>
+            </div>
+            <div class="cv-item">
+                <div class="cv-item-header">
+                    <div class="cv-item-role">Central Research Institute President Team Award &amp; Outstanding Tutor</div>
+                    <div class="cv-item-date">2021</div>
+                </div>
+            </div>
+            <div class="cv-item">
+                <div class="cv-item-header">
+                    <div class="cv-item-role">Innovation Pioneer</div>
+                    <div class="cv-item-date">2020</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Professional Services -->
+        <div class="cv-section" id="cv-services">
+            <h2 class="cv-section-title">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+                Professional Services
+            </h2>
+            <div class="cv-item">
+                <div class="cv-item-role">Conference Reviewer</div>
+                <div class="cv-item-desc">Reviewer for NeurIPS, ICLR, ICML, etc.</div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer cv-footer">
+        <div class="footer-container">
+            <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+                <p>&copy; 2025 Wang Bin. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+    (function() {
+        'use strict';
+
+        const sidebar = document.getElementById('cvSidebarNav');
+        if (!sidebar) return;
+
+        const sidebarLinks = sidebar.querySelectorAll('.cv-sidebar-link');
+        const cvSections = [];
+
+        sidebarLinks.forEach(link => {
+            const sectionId = link.getAttribute('data-section');
+            const section = document.getElementById(sectionId);
+            if (section) {
+                cvSections.push({ id: sectionId, el: section, link: link });
+            }
+        });
+
+        // Show/hide sidebar based on scroll position
+        let ticking = false;
+
+        function updateSidebar() {
+            const scrollY = window.scrollY;
+            const navHeight = 72;
+            const triggerOffset = 200;
+
+            // Show sidebar after scrolling past the header area
+            if (scrollY > triggerOffset) {
+                sidebar.classList.add('visible');
+            } else {
+                sidebar.classList.remove('visible');
+            }
+
+            // Determine active section
+            let activeSection = null;
+            const isAtBottom = (window.innerHeight + scrollY) >= (document.documentElement.scrollHeight - 50);
+            if (isAtBottom && cvSections.length > 0) {
+                activeSection = cvSections[cvSections.length - 1];
+            } else {
+                for (let i = cvSections.length - 1; i >= 0; i--) {
+                    const sectionTop = cvSections[i].el.offsetTop - navHeight - 60;
+                    if (scrollY >= sectionTop) {
+                        activeSection = cvSections[i];
+                        break;
+                    }
+                }
+            }
+
+            // Update active state
+            sidebarLinks.forEach(link => link.classList.remove('active'));
+            if (activeSection) {
+                activeSection.link.classList.add('active');
+            }
+
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(updateSidebar);
+                ticking = true;
+            }
+        });
+
+        // Smooth scroll on click
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const sectionId = this.getAttribute('data-section');
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    const navHeight = 72;
+                    window.scrollTo({
+                        top: section.offsetTop - navHeight - 20,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Initial check
+        updateSidebar();
+    })();
+    </script>
+</body>
+</html>

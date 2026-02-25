@@ -1,0 +1,243 @@
+{
+  "personal": {
+    "name": "Wang Bin",
+    "shortName": "WB",
+    "title": "Research Scientist",
+    "titleFull": "Research Scientist specializing in AI Agents, Foundation Models, and Reinforcement Learning.",
+    "heroDescription": "Pushing the boundaries of intelligent systems that can reason, plan, and interact with the world.",
+    "typingText": "Hi, I'm Wang Bin",
+    "photo": "assets/img/1592386529081.jpg",
+    "location": "Beijing, China",
+    "social": {
+      "linkedin": {
+        "url": "https://www.linkedin.com/in/bin-wang-85a164147/",
+        "label": "LinkedIn",
+        "value": "Bin Wang"
+      },
+      "scholar": {
+        "url": "https://scholar.google.com/citations?user=KWZG_YsAAAAJ&hl=en",
+        "label": "Google Scholar",
+        "value": "View Profile"
+      },
+      "github": {
+        "url": "https://github.com/wangbin-ai",
+        "label": "GitHub",
+        "value": "@wangbin-ai"
+      }
+    }
+  },
+  "about": {
+    "paragraphs": [
+      {
+        "text": "I am a Research Scientist at <strong>Huawei 2012 Labs</strong>, dedicated to advancing the frontiers of artificial intelligence.",
+        "isLead": true
+      },
+      {
+        "text": "I received my Ph.D. from the <strong>Institute of Automation, Chinese Academy of Sciences</strong> in 2015. Before joining Huawei, I worked as an assistant professor at the University of Jinan in Shandong province for over two years."
+      },
+      {
+        "text": "My research focuses on building intelligent systems that can understand, reason, and interact with the world. I collaborate with talented researchers worldwide to push the boundaries of AI technology, with publications in top venues including <span class=\"venue\">ICLR</span>, <span class=\"venue\">ICML</span>, <span class=\"venue\">CVPR</span>, <span class=\"venue\">NeurIPS</span>, <span class=\"venue\">IJCAI</span>, and <span class=\"venue\">AAAI</span>."
+      }
+    ]
+  },
+  "contact": {
+    "intro": "Interested in collaboration or have questions about my research? I'd love to hear from you."
+  },
+  "experience": [
+    {
+      "date": "2018 — Present",
+      "role": "Research Scientist",
+      "organization": "Huawei 2012 Labs"
+    },
+    {
+      "date": "2015 — 2018",
+      "role": "Assistant Professor",
+      "organization": "University of Jinan, Shandong Province"
+    },
+    {
+      "date": "2010 — 2015",
+      "role": "Ph.D.",
+      "organization": "Institute of Automation, Chinese Academy of Sciences"
+    }
+  ],
+  "research": [
+    {
+      "id": "foundation-models",
+      "title": "Foundation Models",
+      "description": "Research on large-scale pre-trained models including LLMs and Multimodal models, focusing on data synthesis, post-training methodologies, and emergent capabilities.",
+      "tags": ["LLMs", "Multimodal", "Reasoning"],
+      "icon": "foundation-models"
+    },
+    {
+      "id": "reinforcement-learning",
+      "title": "Reinforcement Learning",
+      "description": "Developing RL algorithms for sequential decision-making, including policy optimization, reward modeling, and alignment techniques like RLHF.",
+      "tags": ["Deep RL", "RLHF", "Policy Learning"],
+      "icon": "reinforcement-learning"
+    },
+    {
+      "id": "ai-agents",
+      "title": "AI Agents",
+      "description": "Building autonomous agents powered by LLMs/LMMs that can reason, plan, use tools, and execute complex tasks in real-world environments.",
+      "tags": ["AI Agents", "Planning", "Tool Use"],
+      "icon": "ai-agents"
+    },
+    {
+      "id": "embodied-ai",
+      "title": "Embodied AI",
+      "description": "Creating intelligent systems that can perceive, understand, and interact with the physical world through robotic manipulation and sensorimotor learning.",
+      "tags": ["Robotics", "Manipulation", "Simulation"],
+      "icon": "embodied-ai"
+    }
+  ],
+  "publications": [
+    {
+      "id": "pub-logictree",
+      "year": "2025",
+      "venue": "NeurIPS 2025 Spotlight",
+      "title": "LogicTree: Improving Complex Reasoning of LLMs via Instantiated Multi-step Synthetic Logical Data",
+      "url": "https://openreview.net/forum?id=z4AMrCOetn",
+      "authors": "Zehao Wang, Lin Yang, Jie Wang, Kehan Wang, Hanzhu Chen, <strong>Bin Wang</strong>, Jianye Hao, Defu Lian, Bin Li, Enhong Chen",
+      "tags": ["foundation-models"],
+      "tagLabels": ["Foundation Models"],
+      "links": []
+    },
+    {
+      "id": "pub-toolace",
+      "year": "2025",
+      "venue": "ICLR 2025",
+      "title": "ToolACE: Winning the Points of LLM Function Calling",
+      "url": "https://arxiv.org/abs/2409.00920",
+      "authors": "Weiwen Liu, Xu Huang, Xingshan Zeng, ..., <strong>Bin Wang</strong>, ..., Enhong Chen, et al.",
+      "tags": ["foundation-models", "ai-agents"],
+      "tagLabels": ["Foundation Models", "AI Agents"],
+      "semanticId": "0350636522997217df53553ddf3e472338bca97b",
+      "links": [
+        { "type": "openreview", "url": "https://openreview.net/forum?id=8EB8k6DdCU", "label": "OpenReview" },
+        { "type": "github", "url": "https://huggingface.co/Team-ACE", "label": "Model" }
+      ]
+    },
+    {
+      "id": "pub-pangu-ultra",
+      "year": "2025",
+      "venue": "arXiv 2025",
+      "title": "Pangu Ultra: Pushing the Limits of Dense Large Language Models on Ascend NPUs",
+      "url": "https://arxiv.org/abs/2504.07866",
+      "authors": "Yichun Yin, Wenyong Huang, Kaikai Song, ..., <strong>Bin Wang</strong>, ..., Zhicheng Liu, et al.",
+      "tags": ["foundation-models"],
+      "tagLabels": ["Foundation Models"],
+      "semanticId": "9150eccda4ba7518d9a5ac670568cc207a5e0e88",
+      "links": []
+    },
+    {
+      "id": "pub-pangu-embedded",
+      "year": "2025",
+      "venue": "arXiv 2025",
+      "title": "Pangu Embedded: An Efficient Dual-system LLM Reasoner with Metacognition",
+      "url": "https://arxiv.org/abs/2505.22375",
+      "authors": "Hanting Chen, Yasheng Wang, Kai Han, ..., <strong>Bin Wang</strong>, ..., Yunhe Wang, et al.",
+      "tags": ["foundation-models"],
+      "tagLabels": ["Foundation Models"],
+      "semanticId": "c2699ff6ea7c112c7e6fc38d4306593c28e711f4",
+      "links": []
+    },
+    {
+      "id": "pub-tree-planner",
+      "year": "2024",
+      "venue": "ICLR 2024",
+      "title": "Tree-Planner: Efficient Close-loop Task Planning with Large Language Models",
+      "url": "https://arxiv.org/abs/2310.08582",
+      "authors": "Mengkang Hu, Yao Mu, Xinmiao Yu, Mingyu Ding, Shiguang Wu, Wenqi Shao, Qiguang Chen, <strong>Bin Wang</strong>, Yu Qiao, Ping Luo",
+      "tags": ["ai-agents"],
+      "tagLabels": ["AI Agents"],
+      "semanticId": "1e98a9532d4e1fcf947d5b215e2cfabbf6cc41e0",
+      "links": [
+        { "type": "github", "url": "https://github.com/Aaron617/tree-planner", "label": "Code" },
+        { "type": "project", "url": "https://tree-planner.github.io/", "label": "Project" }
+      ]
+    },
+    {
+      "id": "pub-subgoal-images",
+      "year": "2024",
+      "venue": "CVPR 2024",
+      "title": "Generate Subgoal Images before Act: Unlocking the Chain-of-Thought Reasoning in Diffusion Model for Robot Manipulation with Multimodal Prompts",
+      "url": "https://openaccess.thecvf.com/content/CVPR2024/html/Ni_Generate_Subgoal_Images_before_Act_Unlocking_the_Chain-of-Thought_Reasoning_in_CVPR_2024_paper.html",
+      "authors": "Fei Ni, Jianye Hao, Shiguang Wu, Longxin Kou, Jiashun Liu, Yan Zheng, <strong>Bin Wang</strong>, Yuzheng Zhuang",
+      "tags": ["embodied-ai"],
+      "tagLabels": ["Embodied AI"],
+      "semanticId": "49d9222d04a248e25b46458a78f2b92d07e0cf4c",
+      "links": []
+    },
+    {
+      "id": "pub-embodiedgpt",
+      "year": "2023",
+      "venue": "NeurIPS 2023 Spotlight",
+      "title": "EmbodiedGPT: Vision-Language Pre-Training via Embodied Chain of Thought",
+      "url": "https://arxiv.org/abs/2305.15021",
+      "authors": "Yao Mu, Qinglong Zhang, Mengkang Hu, Wenhai Wang, Mingyu Ding, Jun Jin, <strong>Bin Wang</strong>, Jifeng Dai, Yu Qiao, Ping Luo",
+      "tags": ["embodied-ai", "ai-agents"],
+      "tagLabels": ["Embodied AI", "AI Agents"],
+      "semanticId": "00cb69a9f280317d1c59ac5827551ee9b10642b8",
+      "links": [
+        { "type": "project", "url": "https://embodiedgpt.github.io/", "label": "Project" }
+      ]
+    },
+    {
+      "id": "pub-chipformer",
+      "year": "2023",
+      "venue": "ICML 2023",
+      "title": "ChiPFormer: Transferable Chip Placement via Offline Decision Transformer",
+      "url": "https://arxiv.org/abs/2306.14744",
+      "authors": "Yao Lai, Jinxin Liu, Zhentao Tang, <strong>Bin Wang</strong>, Jianye Hao, Ping Luo",
+      "tags": ["reinforcement-learning"],
+      "tagLabels": ["Reinforcement Learning"],
+      "semanticId": "4a810f17843145195d73d5c63dc0f1477ba9cafc",
+      "links": [
+        { "type": "github", "url": "https://github.com/laiyao1/chipformer", "label": "Code" }
+      ]
+    },
+    {
+      "id": "pub-metadiffuser",
+      "year": "2023",
+      "venue": "ICML 2023",
+      "title": "MetaDiffuser: Diffusion Model as Conditional Planner for Offline Meta-RL",
+      "url": "https://arxiv.org/abs/2305.19923",
+      "authors": "Fei Ni, Jianye Hao, Yao Mu, Yifu Yuan, Yan Zheng, <strong>Bin Wang</strong>, Zhixuan Liang",
+      "tags": ["reinforcement-learning"],
+      "tagLabels": ["Reinforcement Learning"],
+      "semanticId": "42fa70f18de0fb98381c76f624bd69e3a80d9cdd",
+      "links": [
+        { "type": "project", "url": "https://metadiffuser.github.io/", "label": "Project" }
+      ]
+    },
+    {
+      "id": "pub-learnable-behavior",
+      "year": "2023",
+      "venue": "ICLR 2023 Oral",
+      "title": "Learnable Behavior Control: Breaking Atari Human World Records via Sample-Efficient Behavior Selection",
+      "url": "https://arxiv.org/abs/2305.05239",
+      "authors": "Jiajun Fan, Yuzheng Zhuang, Yuecheng Liu, Jianye Hao, <strong>Bin Wang</strong>, Jiangcheng Zhu, Hao Wang, Shu-Tao Xia",
+      "tags": ["reinforcement-learning"],
+      "tagLabels": ["Reinforcement Learning"],
+      "semanticId": "bb1a3404a677154c99f6309e2ae709f44589c4cf",
+      "links": [
+        { "type": "openreview", "url": "https://openreview.net/forum?id=FeWvD0L_a4", "label": "OpenReview" }
+      ]
+    },
+    {
+      "id": "pub-domino",
+      "year": "2022",
+      "venue": "NeurIPS 2022 Spotlight",
+      "title": "DOMINO: Decomposed Mutual Information Optimization for Generalized Context in Meta-Reinforcement Learning",
+      "url": "https://arxiv.org/abs/2210.04209",
+      "authors": "Yao Mu, Fei Ni, Weichen Yu, <strong>Bin Wang</strong>, Jianye Hao, Ping Luo",
+      "tags": ["reinforcement-learning"],
+      "tagLabels": ["Reinforcement Learning"],
+      "semanticId": "3bea3772ba6f650a63b7d10042c2e3d3edd0b3ca",
+      "links": [
+        { "type": "github", "url": "https://github.com/YaoMarkMu/DOMINO_MB-MetaRL", "label": "Code" }
+      ]
+    }
+  ],
+  "lastUpdate": "02.2026"
+}
