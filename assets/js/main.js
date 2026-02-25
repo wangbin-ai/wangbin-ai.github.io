@@ -339,11 +339,6 @@
     }
 
     function renderFooter(data) {
-        const footerLogo = document.getElementById('footerLogo');
-        if (footerLogo) {
-            footerLogo.textContent = data.personal.shortName;
-        }
-
         const footerCopyright = document.getElementById('footerCopyright');
         if (footerCopyright) {
             const currentYear = new Date().getFullYear();
