@@ -432,6 +432,7 @@ img {
 .hero-container {
     max-width: var(--container-max);
     width: 100%;
+    padding: 0 2rem;
     text-align: center;
 }
 
@@ -816,8 +817,8 @@ img {
     max-width: var(--container-max);
     width: 100%;
     margin-top: 2rem;
-    padding-left: calc(280px + 4rem);
-    box-sizing: border-box;
+    padding-left: calc(2rem + 280px + 4rem);
+    padding-right: 2rem;
     animation: fadeInUp 0.6s ease 0.5s both;
 }
 
@@ -1568,7 +1569,8 @@ img {
     }
 
     .hero-news {
-        padding-left: calc(160px + 2rem);
+        padding-left: calc(1.5rem + 160px + 2rem);
+        padding-right: 1.5rem;
     }
 
     .about-cards {
@@ -1773,7 +1775,8 @@ img {
 
     .hero-news {
         margin-top: 2rem;
-        padding-left: 0;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
     }
 
     .hero-news-scroll {
