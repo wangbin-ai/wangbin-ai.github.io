@@ -215,7 +215,7 @@
         const container = document.getElementById('heroNewsContainer');
         if (!container || !data.news || data.news.length === 0) return;
 
-        const newsItems = data.news.map(item => {
+        const newsItems = data.news.slice(0, 3).map(item => {
             const datePart = item.date ? `<span class="news-date">${item.date}</span>` : '';
             const className = item.important ? 'news-item important' : 'news-item';
             return `<li class="${className}">${datePart}<span class="news-text">${item.text}</span></li>`;
