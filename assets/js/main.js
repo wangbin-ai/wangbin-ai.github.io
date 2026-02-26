@@ -212,14 +212,29 @@
     }
 
     function renderNews(data) {
-        const newsList = document.getElementById('heroNewsList');
-        if (!newsList || !data.news) return;
+        const container = document.getElementById('heroNewsContainer');
+        if (!container || !data.news || data.news.length === 0) return;
 
-        newsList.innerHTML = data.news.map(item => {
+        const newsItems = data.news.map(item => {
             const datePart = item.date ? `<span class="news-date">${item.date}</span>` : '';
             const className = item.important ? 'news-item important' : 'news-item';
             return `<li class="${className}">${datePart}<span class="news-text">${item.text}</span></li>`;
         }).join('');
+
+        container.innerHTML = `
+            <div class="hero-news">
+                <div class="hero-news-header">
+                    <svg class="hero-news-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/>
+                        <path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6z"/>
+                    </svg>
+                    <span>Latest News</span>
+                </div>
+                <div class="hero-news-scroll">
+                    <ul class="hero-news-list">${newsItems}</ul>
+                </div>
+            </div>
+        `;
     }
 
     function renderAbout(data) {
