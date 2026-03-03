@@ -19,10 +19,10 @@
         "label": "Google Scholar",
         "value": "View Profile"
       },
-      "github": {
-        "url": "https://github.com/wangbin-ai",
-        "label": "GitHub",
-        "value": "@wangbin-ai"
+      "email": {
+        "url": "mailto:binderwang@163.com",
+        "label": "Email",
+        "value": "binderwang@163.com"
       }
     }
   },
