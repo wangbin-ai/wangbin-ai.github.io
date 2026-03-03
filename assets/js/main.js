@@ -153,7 +153,15 @@
         }
     }
 
+    // Detect if we're on the CV page
+    const isCVPage = document.querySelector('.cv-page') !== null;
+
     function renderAll(data) {
+        if (isCVPage) {
+            renderCVPage(data);
+            return;
+        }
+
         renderNav(data);
         renderHero(data);
         renderNews(data);
@@ -847,6 +855,319 @@
                 }
             });
         });
+    }
+
+    // ============================================
+    // CV Page Rendering
+    // ============================================
+    // SVG icons for CV section titles
+    const cvSectionIcons = {
+        'cv-research-interests': `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>`,
+        'cv-experience': `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>`,
+        'cv-education': `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>`,
+        'cv-publications': `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>`,
+        'cv-awards': `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12"/></svg>`,
+        'cv-services': `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`
+    };
+
+    // CV contact item SVG icons
+    const cvContactIcons = {
+        location: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 5.4 8 12 8 12s8-6.6 8-12a8 8 0 0 0-8-8z"/></svg>`,
+        linkedin: `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>`,
+        scholar: `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5L12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>`,
+        github: `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>`
+    };
+
+    function renderCVPage(data) {
+        renderCVNav(data);
+        renderCVHeader(data);
+        renderCVSidebar(data);
+        renderCVResearchInterests(data);
+        renderCVExperience(data);
+        renderCVEducation(data);
+        renderCVPublications(data);
+        renderCVAwards(data);
+        renderCVServices(data);
+        renderCVFooter(data);
+
+        initCVSidebar();
+        initSmoothScroll();
+    }
+
+    function renderCVNav(data) {
+        const navLogo = document.querySelector('.nav-logo');
+        if (navLogo) {
+            navLogo.innerHTML = `<img src="${data.personal.photo}" alt="${data.personal.name}" class="nav-avatar">`;
+        }
+    }
+
+    function renderCVHeader(data) {
+        const avatar = document.getElementById('cvAvatar');
+        if (avatar) {
+            avatar.src = data.personal.photo;
+            avatar.alt = data.personal.name;
+        }
+
+        const name = document.getElementById('cvName');
+        if (name) name.textContent = data.personal.name;
+
+        const title = document.getElementById('cvTitle');
+        if (title) title.textContent = data.cv.titleFull;
+
+        const contactRow = document.getElementById('cvContactRow');
+        if (!contactRow) return;
+
+        // Location (not a link)
+        let contactHtml = `<span class="cv-contact-item">${cvContactIcons.location} ${data.personal.location}</span>`;
+
+        // Social links
+        const socialOrder = ['linkedin', 'scholar', 'github'];
+        socialOrder.forEach(key => {
+            const social = data.personal.social[key];
+            if (social) {
+                contactHtml += `<a href="${social.url}" target="_blank" class="cv-contact-item">${cvContactIcons[key] || ''} ${social.label}</a>`;
+            }
+        });
+
+        contactRow.innerHTML = contactHtml;
+    }
+
+    function renderCVSidebar(data) {
+        const sidebar = document.getElementById('cvSidebarNav');
+        if (!sidebar || !data.cv.sections) return;
+
+        sidebar.innerHTML = data.cv.sections.map(section =>
+            `<a href="#${section.id}" class="cv-sidebar-link" data-section="${section.id}">${section.title}</a>`
+        ).join('');
+    }
+
+    function renderCVResearchInterests(data) {
+        const container = document.getElementById('cvResearchInterests');
+        if (!container) return;
+
+        container.innerHTML = `
+            <h2 class="cv-section-title">${cvSectionIcons['cv-research-interests']} Research Interests</h2>
+            <p class="cv-interests-text">${data.cv.researchInterests}</p>
+        `;
+    }
+
+    function renderCVExperience(data) {
+        const container = document.getElementById('cvExperience');
+        if (!container) return;
+
+        const itemsHtml = data.cv.experience.map(exp => {
+            let subItemsHtml = '';
+            if (exp.subItems && exp.subItems.length > 0) {
+                subItemsHtml = `<div class="cv-sub-items">${exp.subItems.map(sub => `
+                    <div class="cv-sub-item">
+                        <div class="cv-sub-item-header">
+                            <div class="cv-sub-item-role">${sub.role}</div>
+                            <div class="cv-sub-item-date">${sub.date}</div>
+                        </div>
+                        <div class="cv-sub-item-desc">${sub.description}</div>
+                    </div>
+                `).join('')}</div>`;
+            }
+
+            const descHtml = exp.description ? `<div class="cv-item-org">${exp.description}</div>` : '';
+
+            return `
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <div>
+                            <div class="cv-item-role">${exp.role}</div>
+                            <div class="cv-item-org">${exp.organization}</div>
+                            ${descHtml}
+                        </div>
+                        <div class="cv-item-date">${exp.date}</div>
+                    </div>
+                    ${subItemsHtml}
+                </div>
+            `;
+        }).join('');
+
+        container.innerHTML = `
+            <h2 class="cv-section-title">${cvSectionIcons['cv-experience']} Professional Experience</h2>
+            ${itemsHtml}
+        `;
+    }
+
+    function renderCVEducation(data) {
+        const container = document.getElementById('cvEducation');
+        if (!container) return;
+
+        const itemsHtml = data.cv.education.map(edu => {
+            const descHtml = edu.description ? `<div class="cv-item-org">${edu.description}</div>` : '';
+            return `
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <div>
+                            <div class="cv-item-role">${edu.degree}</div>
+                            <div class="cv-item-org">${edu.institution}</div>
+                            ${descHtml}
+                        </div>
+                        <div class="cv-item-date">${edu.date}</div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+
+        container.innerHTML = `
+            <h2 class="cv-section-title">${cvSectionIcons['cv-education']} Education</h2>
+            ${itemsHtml}
+        `;
+    }
+
+    function renderCVPublications(data) {
+        const container = document.getElementById('cvPublications');
+        if (!container) return;
+
+        const pubsHtml = data.publications.map(pub => `
+            <div class="cv-pub-item">
+                <span class="cv-pub-venue">${pub.venue}</span>
+                <div class="cv-pub-title">${pub.title}</div>
+                <div class="cv-pub-authors">${pub.authors}</div>
+            </div>
+        `).join('');
+
+        const scholarUrl = data.personal.social.scholar.url;
+
+        container.innerHTML = `
+            <h2 class="cv-section-title">${cvSectionIcons['cv-publications']} Selected Publications</h2>
+            ${pubsHtml}
+            <div class="cv-pub-footer">
+                <a href="${scholarUrl}" target="_blank" class="btn-cv btn-cv-print">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                        <path d="M15 3h6v6"/>
+                        <path d="M10 14L21 3"/>
+                    </svg>
+                    View Full Publication List
+                </a>
+            </div>
+        `;
+    }
+
+    function renderCVAwards(data) {
+        const container = document.getElementById('cvAwards');
+        if (!container) return;
+
+        const itemsHtml = data.cv.awards.map(award => `
+            <div class="cv-item">
+                <div class="cv-item-header">
+                    <div class="cv-item-role">${award.title}</div>
+                    <div class="cv-item-date">${award.year}</div>
+                </div>
+            </div>
+        `).join('');
+
+        container.innerHTML = `
+            <h2 class="cv-section-title">${cvSectionIcons['cv-awards']} Awards &amp; Honors</h2>
+            ${itemsHtml}
+        `;
+    }
+
+    function renderCVServices(data) {
+        const container = document.getElementById('cvServices');
+        if (!container) return;
+
+        const itemsHtml = data.cv.services.map(service => `
+            <div class="cv-item">
+                <div class="cv-item-role">${service.role}</div>
+                <div class="cv-item-desc">${service.description}</div>
+            </div>
+        `).join('');
+
+        container.innerHTML = `
+            <h2 class="cv-section-title">${cvSectionIcons['cv-services']} Professional Services</h2>
+            ${itemsHtml}
+        `;
+    }
+
+    function renderCVFooter(data) {
+        const footerCopyright = document.getElementById('footerCopyright');
+        if (footerCopyright) {
+            const currentYear = new Date().getFullYear();
+            footerCopyright.innerHTML = `&copy; ${currentYear} ${data.personal.name}. All rights reserved.`;
+        }
+    }
+
+    // ============================================
+    // CV Sidebar Navigation Logic
+    // ============================================
+    function initCVSidebar() {
+        const sidebar = document.getElementById('cvSidebarNav');
+        if (!sidebar) return;
+
+        const sidebarLinks = sidebar.querySelectorAll('.cv-sidebar-link');
+        const cvSections = [];
+
+        sidebarLinks.forEach(link => {
+            const sectionId = link.getAttribute('data-section');
+            const section = document.getElementById(sectionId);
+            if (section) {
+                cvSections.push({ id: sectionId, el: section, link: link });
+            }
+        });
+
+        let cvTicking = false;
+
+        function updateSidebar() {
+            const scrollY = window.scrollY;
+            const navHeight = 72;
+            const triggerOffset = 200;
+
+            if (scrollY > triggerOffset) {
+                sidebar.classList.add('visible');
+            } else {
+                sidebar.classList.remove('visible');
+            }
+
+            let activeSection = null;
+            const isAtBottom = (window.innerHeight + scrollY) >= (document.documentElement.scrollHeight - 50);
+            if (isAtBottom && cvSections.length > 0) {
+                activeSection = cvSections[cvSections.length - 1];
+            } else {
+                for (let i = cvSections.length - 1; i >= 0; i--) {
+                    const sectionTop = cvSections[i].el.offsetTop - navHeight - 60;
+                    if (scrollY >= sectionTop) {
+                        activeSection = cvSections[i];
+                        break;
+                    }
+                }
+            }
+
+            sidebarLinks.forEach(link => link.classList.remove('active'));
+            if (activeSection) {
+                activeSection.link.classList.add('active');
+            }
+
+            cvTicking = false;
+        }
+
+        window.addEventListener('scroll', function() {
+            if (!cvTicking) {
+                window.requestAnimationFrame(updateSidebar);
+                cvTicking = true;
+            }
+        });
+
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const sectionId = this.getAttribute('data-section');
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    const navHeight = 72;
+                    window.scrollTo({
+                        top: section.offsetTop - navHeight - 20,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        updateSidebar();
     }
 
     // ============================================

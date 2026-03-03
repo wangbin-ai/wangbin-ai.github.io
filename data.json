@@ -271,5 +271,73 @@
       "important": false
     }
   ],
+  "cv": {
+    "titleFull": "Research Scientist at Huawei 2012 Labs",
+    "researchInterests": "My research focuses on building intelligent systems that can understand, reason, and interact with the world. Specific interests include <strong>Foundation Models</strong> (large language models, multimodal models, data synthesis, post-training, and reasoning), <strong>AI Agents</strong> (autonomous agents powered by LLMs that can plan, use tools, and execute complex tasks), <strong>Reinforcement Learning</strong> (policy optimization, reward modeling, RLVR & RLHF, and offline RL), and <strong>Embodied AI</strong> (robotic manipulation, vision-language grounding, and sensorimotor learning).",
+    "experience": [
+      {
+        "role": "Research Scientist",
+        "organization": "Huawei 2012 Labs, Beijing, China",
+        "date": "2018 &mdash; Present",
+        "subItems": [
+          {
+            "role": "Foundation Models",
+            "date": "2023 &mdash; Present",
+            "description": "Leading foundation models post-training for LLMs/VLMs especially in ARC abilities. Leading research on large language models, including improving complex reasoning capabilities via synthetic data and dual-system approaches (LogicTree, Pangu Embedded, Pangu Ultra), and advancing LLM function calling and tool-use abilities (ToolACE)."
+          },
+          {
+            "role": "Embodied AI",
+            "date": "2022 &mdash; 2023",
+            "description": "Leading research on embodied intelligence systems, including vision-language pre-training for embodied agents (EmbodiedGPT), LLM-based task planning for robotic execution (Tree-Planner), diffusion model-driven robot manipulation (Generate Subgoal Images), and offline meta-reinforcement learning for planning (MetaDiffuser)."
+          },
+          {
+            "role": "Autonomous Driving",
+            "date": "2018 &mdash; 2022",
+            "description": "Developing reinforcement learning models for autonomous driving planning, dealing with challenge scenarios like lane-change, intersections, etc.. Research on reinforcement learning for decision-making, including imitation learning (Tripple-GAIL), meta-reinforcement learning with decomposed mutual information (DOMINO), sample-efficient behavior selection that broke Atari human world records (Learnable Behavior Control)."
+          }
+        ]
+      },
+      {
+        "role": "Assistant Professor",
+        "organization": "University of Jinan, Shandong Province, China",
+        "date": "2015 &mdash; 2018",
+        "description": "Research on reinforcement learning for robotic navigation."
+      }
+    ],
+    "education": [
+      {
+        "degree": "Ph.D. in Control Science and Engineering",
+        "institution": "Institute of Automation, Chinese Academy of Sciences",
+        "date": "2010 &mdash; 2015",
+        "description": "Research on reinforcement learning and autonomous driving."
+      },
+      {
+        "degree": "B.S. in Automation",
+        "institution": "China University of Petroleum",
+        "date": "2006 &mdash; 2010"
+      }
+    ],
+    "awards": [
+      { "title": "Innovation Pioneer &amp; 2012 Laboratories President Award", "year": "2025" },
+      { "title": "2012 Laboratories President Award", "year": "2024" },
+      { "title": "2012 Laboratories President Award", "year": "2023" },
+      { "title": "Central Research Institute President Team Award &amp; Outstanding Tutor", "year": "2021" },
+      { "title": "Innovation Pioneer", "year": "2020" }
+    ],
+    "services": [
+      {
+        "role": "Conference Reviewer",
+        "description": "Reviewer for NeurIPS, ICLR, ICML, etc."
+      }
+    ],
+    "sections": [
+      { "id": "cv-research-interests", "title": "Research Interests" },
+      { "id": "cv-experience", "title": "Professional Experience" },
+      { "id": "cv-education", "title": "Education" },
+      { "id": "cv-publications", "title": "Selected Publications" },
+      { "id": "cv-awards", "title": "Awards & Honors" },
+      { "id": "cv-services", "title": "Professional Services" }
+    ]
+  },
   "lastUpdate": "02.2026"
 }
