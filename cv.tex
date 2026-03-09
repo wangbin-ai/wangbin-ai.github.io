@@ -1,0 +1,187 @@
+%% Wang Bin — Curriculum Vitae
+%% Compile with: xelatex or pdflatex
+
+\documentclass[10pt, a4paper]{article}
+
+% ─── Packages ────────────────────────────────────────────────────────────────
+\usepackage[a4paper, top=1.8cm, bottom=1.8cm, left=2.0cm, right=2.0cm]{geometry}
+\usepackage{hyperref}
+\usepackage{fontawesome5}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{microtype}
+\usepackage{parskip}
+
+% ─── Colors ──────────────────────────────────────────────────────────────────
+\definecolor{accent}{RGB}{99, 102, 241}
+\definecolor{dimtext}{RGB}{80, 80, 110}
+
+% ─── Hyperref ────────────────────────────────────────────────────────────────
+\hypersetup{
+    colorlinks = true,
+    urlcolor   = accent,
+    linkcolor  = accent,
+    pdftitle   = {Wang Bin — CV},
+    pdfauthor  = {Wang Bin}
+}
+
+% ─── Section style ───────────────────────────────────────────────────────────
+\titleformat{\section}
+    {\normalsize\bfseries\uppercase}
+    {}
+    {0em}
+    {}
+    [\vspace{-0.45em}{\color{accent}\rule{\linewidth}{1pt}}\vspace{0.1em}]
+\titlespacing*{\section}{0pt}{0.85em}{0.35em}
+
+% ─── Helpers ─────────────────────────────────────────────────────────────────
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% Role + Org + Date header
+\newcommand{\roleentry}[3]{%
+  \begin{tabular*}{\linewidth}{@{}l@{\extracolsep{\fill}}r@{}}
+    \textbf{#1} \textcolor{dimtext}{\small\textit{$\cdot$ #2}} &
+    {\small\textcolor{accent}{\texttt{#3}}}
+  \end{tabular*}\vspace{0.1em}%
+}
+
+% Publication entry
+\newcommand{\pub}[3]{%  {title}{authors}{venue}
+  \item \textbf{#1}\\
+    {\footnotesize\textcolor{dimtext}{#2}}\\
+    {\footnotesize\textit{\textcolor{accent}{#3}}}%
+}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\begin{document}
+\pagestyle{empty}
+
+% ── Header ───────────────────────────────────────────────────────────────────
+\begin{center}
+  {\LARGE\bfseries Wang Bin}\\[0.35em]
+  {\small Research Scientist at Huawei 2012 Labs}\\[0.45em]
+  {\small
+    \faMapMarker*\ Beijing, China\quad
+    \href{https://www.linkedin.com/in/bin-wang-85a164147/}{\faLinkedin\ Bin Wang}\quad
+    \href{https://scholar.google.com/citations?user=KWZG_YsAAAAJ&hl=en}{\faGraduationCap\ Google Scholar}\quad
+    \href{mailto:binderwang@163.com}{\faEnvelope\ binderwang@163.com}
+  }
+\end{center}
+\vspace{0.3em}
+
+% ── Research Interests ───────────────────────────────────────────────────────
+\section{Research Interests}
+{\small
+My research focuses on building intelligent systems that can understand, reason, and interact with the world.
+Specific interests include \textbf{Foundation Models} (LLMs, multimodal models, data synthesis, post-training, and reasoning),
+\textbf{AI Agents} (autonomous agents powered by LLMs that can plan, use tools, and execute complex tasks),
+\textbf{Reinforcement Learning} (policy optimization, reward modeling, RLVR \& RLHF, and offline RL),
+and \textbf{Embodied AI} (robotic manipulation, vision-language grounding, and sensorimotor learning).
+}
+
+% ── Professional Experience ──────────────────────────────────────────────────
+\section{Professional Experience}
+
+\roleentry{Research Scientist}{Huawei 2012 Labs, Beijing, China}{2018 — Present}
+\begin{itemize}[leftmargin=1.2em, itemsep=0.15em, topsep=0.1em, parsep=0pt]
+  \item[\small\textbullet] {\small\textbf{Foundation Models}\ \textcolor{accent}{\texttt{2023—Present}}\ —
+    Leading LLM/VLM post-training with focus on ARC abilities.
+    Research on improving complex reasoning via synthetic data and dual-system approaches
+    (\textit{LogicTree, Pangu Embedded, Pangu Ultra})
+    and LLM function calling (\textit{ToolACE}).}
+  \item[\small\textbullet] {\small\textbf{Embodied AI}\ \textcolor{accent}{\texttt{2022—2023}}\ —
+    Vision-language pre-training for embodied agents (\textit{EmbodiedGPT}),
+    LLM-based task planning (\textit{Tree-Planner}),
+    diffusion model-driven robot manipulation,
+    and offline meta-RL planning (\textit{MetaDiffuser}).}
+  \item[\small\textbullet] {\small\textbf{Autonomous Driving}\ \textcolor{accent}{\texttt{2018—2022}}\ —
+    RL for driving planning (lane-change, intersections).
+    Imitation learning (Tripple-GAIL), meta-RL with decomposed mutual information (\textit{DOMINO}),
+    and sample-efficient behavior selection breaking Atari world records (\textit{Learnable Behavior Control}).}
+\end{itemize}
+
+\vspace{0.45em}
+\roleentry{Assistant Professor}{University of Jinan, Shandong Province, China}{2015 — 2018}
+{\small\textcolor{dimtext}{Research on reinforcement learning for robotic navigation.}}
+
+% ── Education ────────────────────────────────────────────────────────────────
+\section{Education}
+
+\roleentry{Ph.D.\ in Control Science and Engineering}{Institute of Automation, Chinese Academy of Sciences}{2010 — 2015}
+{\small\textcolor{dimtext}{Research on reinforcement learning and autonomous driving.}}
+
+\vspace{0.35em}
+\roleentry{B.S.\ in Automation}{China University of Petroleum}{2006 — 2010}
+
+% ── Selected Publications ────────────────────────────────────────────────────
+\section{Selected Publications}
+
+\begin{itemize}[leftmargin=1.2em, itemsep=0.3em, topsep=0.1em, parsep=0pt]
+  \pub{LogicTree: Improving Complex Reasoning of LLMs via Instantiated Multi-step Synthetic Logical Data}
+      {Zehao Wang, Lin Yang, Jie Wang, Kehan Wang, Hanzhu Chen, \textbf{Bin Wang}, Jianye Hao, Defu Lian, Bin Li, Enhong Chen}
+      {NeurIPS 2025 Spotlight}
+
+  \pub{ToolACE: Winning the Points of LLM Function Calling}
+      {Weiwen Liu, Xu Huang, Xingshan Zeng, \ldots, \textbf{Bin Wang}, \ldots, Enhong Chen, et al.}
+      {ICLR 2025}
+
+  \pub{Pangu Ultra: Pushing the Limits of Dense Large Language Models on Ascend NPUs}
+      {Yichun Yin, Wenyong Huang, Kaikai Song, \ldots, \textbf{Bin Wang}, \ldots, Zhicheng Liu, et al.}
+      {arXiv 2025}
+
+  \pub{Pangu Embedded: An Efficient Dual-system LLM Reasoner with Metacognition}
+      {Hanting Chen, Yasheng Wang, Kai Han, \ldots, \textbf{Bin Wang}, \ldots, Yunhe Wang, et al.}
+      {arXiv 2025}
+
+  \pub{Tree-Planner: Efficient Close-loop Task Planning with Large Language Models}
+      {Mengkang Hu, Yao Mu, Xinmiao Yu, Mingyu Ding, Shiguang Wu, Wenqi Shao, Qiguang Chen, \textbf{Bin Wang}, Yu Qiao, Ping Luo}
+      {ICLR 2024}
+
+  \pub{Generate Subgoal Images before Act: Unlocking the Chain-of-Thought Reasoning in Diffusion Model for Robot Manipulation}
+      {Fei Ni, Jianye Hao, Shiguang Wu, Longxin Kou, Jiashun Liu, Yan Zheng, \textbf{Bin Wang}, Yuzheng Zhuang}
+      {CVPR 2024}
+
+  \pub{EmbodiedGPT: Vision-Language Pre-Training via Embodied Chain of Thought}
+      {Yao Mu, Qinglong Zhang, Mengkang Hu, Wenhai Wang, Mingyu Ding, Jun Jin, \textbf{Bin Wang}, Jifeng Dai, Yu Qiao, Ping Luo}
+      {NeurIPS 2023 Spotlight}
+
+  \pub{ChiPFormer: Transferable Chip Placement via Offline Decision Transformer}
+      {Yao Lai, Jinxin Liu, Zhentao Tang, \textbf{Bin Wang}, Jianye Hao, Ping Luo}
+      {ICML 2023}
+
+  \pub{MetaDiffuser: Diffusion Model as Conditional Planner for Offline Meta-RL}
+      {Fei Ni, Jianye Hao, Yao Mu, Yifu Yuan, Yan Zheng, \textbf{Bin Wang}, Zhixuan Liang}
+      {ICML 2023}
+
+  \pub{Learnable Behavior Control: Breaking Atari Human World Records via Sample-Efficient Behavior Selection}
+      {Jiajun Fan, Yuzheng Zhuang, Yuecheng Liu, Jianye Hao, \textbf{Bin Wang}, Jiangcheng Zhu, Hao Wang, Shu-Tao Xia}
+      {ICLR 2023 Oral}
+
+  \pub{DOMINO: Decomposed Mutual Information Optimization for Generalized Context in Meta-Reinforcement Learning}
+      {Yao Mu, Fei Ni, Weichen Yu, \textbf{Bin Wang}, Jianye Hao, Ping Luo}
+      {NeurIPS 2022 Spotlight}
+\end{itemize}
+
+% ── Awards & Honors ──────────────────────────────────────────────────────────
+\section{Awards \& Honors}
+
+{\small
+\begin{tabular*}{\linewidth}{@{}l@{\extracolsep{\fill}}r@{}}
+  Innovation Pioneer \& 2012 Laboratories President Award & \textcolor{accent}{2025} \\[0.15em]
+  2012 Laboratories President Award                        & \textcolor{accent}{2024} \\[0.15em]
+  2012 Laboratories President Award                        & \textcolor{accent}{2023} \\[0.15em]
+  Central Research Institute President Team Award \& Outstanding Tutor & \textcolor{accent}{2021} \\[0.15em]
+  Innovation Pioneer                                       & \textcolor{accent}{2020} \\
+\end{tabular*}
+}
+
+% ── Professional Services ────────────────────────────────────────────────────
+\section{Professional Services}
+
+{\small\textbf{Conference Reviewer}: NeurIPS, ICLR, ICML, etc.}
+
+\end{document}
