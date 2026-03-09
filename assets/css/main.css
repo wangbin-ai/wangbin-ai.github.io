@@ -2251,6 +2251,11 @@ img {
 
 /* CV Print Styles */
 @media print {
+    @page {
+        margin: 12mm 14mm;
+        size: A4;
+    }
+
     .nav, .bg-gradient, .bg-grid, .bg-glow, .cv-actions, .footer, .cv-sidebar-nav {
         display: none !important;
     }
@@ -2263,54 +2268,169 @@ img {
     body {
         background: white;
         color: #1a1a2e;
+        font-size: 9.5pt;
+    }
+
+    /* Compact header */
+    .cv-header {
+        margin-bottom: 0.6rem;
     }
 
     .cv-name {
         background: none;
         -webkit-text-fill-color: #1a1a2e;
         color: #1a1a2e;
+        font-size: 1.5rem;
+        margin-bottom: 0.2rem;
     }
 
-    .cv-item, .cv-pub-item {
-        background: transparent;
-        border-color: #e5e7eb;
+    .cv-title {
+        font-size: 0.8rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .cv-contact-row {
+        gap: 0.75rem;
+        margin-top: 0.3rem;
+    }
+
+    .cv-contact-item {
+        font-size: 0.75rem;
+    }
+
+    /* Compact sections */
+    .cv-section {
+        margin-bottom: 0.8rem;
+        animation: none;
     }
 
     .cv-section-title {
+        font-size: 0.9rem;
+        padding-bottom: 0.3rem;
+        margin-bottom: 0.5rem;
         border-image: none;
         border-bottom-color: #6366f1;
     }
 
-    .cv-interests-text {
-        color: #1a1a2e;
+    .cv-section-title svg {
+        display: none;
     }
 
-    .cv-interests-text strong {
-        color: #1a1a2e;
+    /* Experience & Education items */
+    .cv-item {
+        background: transparent;
+        border-color: #e5e7eb;
+        padding: 0.4rem 0.6rem;
+        margin-bottom: 0.35rem;
+        border-radius: 4px;
+        page-break-inside: avoid;
+        transition: none;
     }
 
+    .cv-item:hover {
+        transform: none;
+    }
+
+    .cv-item-header {
+        margin-bottom: 0.1rem;
+        gap: 0.5rem;
+    }
+
+    .cv-item-role {
+        font-size: 0.8rem;
+    }
+
+    .cv-item-date {
+        font-size: 0.7rem;
+    }
+
+    .cv-item-org {
+        font-size: 0.75rem;
+    }
+
+    .cv-item-desc {
+        font-size: 0.7rem;
+        margin-top: 0.2rem;
+        line-height: 1.5;
+    }
+
+    /* Sub-items */
     .cv-sub-items {
         border-left-color: #e5e7eb;
+        margin-top: 0.3rem;
+        padding-left: 0.6rem;
+    }
+
+    .cv-sub-item {
+        padding: 0.2rem 0 0.2rem 0.5rem;
     }
 
     .cv-sub-item + .cv-sub-item {
         border-top-color: #e5e7eb;
     }
 
+    .cv-sub-item-header {
+        gap: 0.5rem;
+    }
+
     .cv-sub-item-role {
         color: #1a1a2e;
+        font-size: 0.78rem;
     }
 
     .cv-sub-item-date {
         color: #6366f1;
+        font-size: 0.68rem;
     }
 
     .cv-sub-item-desc {
         color: #4a4a6a;
+        font-size: 0.68rem;
+        margin-top: 0.1rem;
+        line-height: 1.4;
+    }
+
+    /* Research interests */
+    .cv-interests-text {
+        color: #1a1a2e;
+        font-size: 0.8rem;
+        line-height: 1.5;
+    }
+
+    .cv-interests-text strong {
+        color: #1a1a2e;
+    }
+
+    /* Publications */
+    .cv-pub-item {
+        background: transparent;
+        border-color: #e5e7eb;
+        padding: 0.35rem 0.6rem;
+        margin-bottom: 0.3rem;
+        border-radius: 4px;
+        page-break-inside: avoid;
+        transition: none;
     }
 
     .cv-pub-venue {
         background: #6366f1;
+        font-size: 0.6rem;
+        padding: 0.05rem 0.35rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .cv-pub-title {
+        font-size: 0.78rem;
+        margin-bottom: 0.15rem;
+    }
+
+    .cv-pub-authors {
+        font-size: 0.68rem;
+        line-height: 1.4;
+    }
+
+    .cv-pub-footer {
+        display: none;
     }
 }
 
